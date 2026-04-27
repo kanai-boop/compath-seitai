@@ -59,8 +59,16 @@ export default function AboutPage() {
       <main className="w-full flex flex-col">
 
         {/* Hero */}
-        <section className="bg-[#1A1918] w-full">
-          <div className="max-w-5xl mx-auto px-6 md:px-8 pt-12 pb-10 md:pt-16 md:pb-14 flex flex-col gap-3">
+        <section className="bg-[#1A1918] w-full relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <img
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1400&q=60"
+              alt=""
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 pt-12 pb-10 md:pt-16 md:pb-14 flex flex-col gap-3">
             <p className="text-[10px] tracking-[0.2em] text-[#888888] font-medium">ABOUT DIRECTOR</p>
             <h1 className="text-[24px] md:text-[36px] font-bold text-white leading-snug tracking-tight">院長プロフィール</h1>
             <p className="text-[12px] text-[#666666] tracking-widest">Minori Tanaka</p>
@@ -71,28 +79,36 @@ export default function AboutPage() {
         <section className="bg-[#F5F4F1] w-full">
           <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20 flex flex-col gap-12 md:gap-16">
 
-            {/* Profile Card */}
-            <div className="bg-white rounded-xl p-5 md:p-8 flex flex-col md:flex-row md:items-start md:gap-10">
-              <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-3 md:shrink-0">
-                <div className="w-[76px] h-[76px] md:w-[100px] md:h-[100px] rounded-full bg-[#D8D3CC] shrink-0" />
-                <div className="flex flex-col gap-1.5 md:items-center md:text-center">
-                  <p className="text-[18px] md:text-[20px] font-bold text-[#1A1918]">田中 みのり</p>
-                  <p className="text-[10px] text-[#888888] tracking-widest">Minori Tanaka</p>
-                  <span className="self-start md:self-center text-[11px] font-semibold text-[#3D8A5A] bg-[#EBF5EE] px-3 py-1 rounded-full">
+            {/* Profile Card - horizontal layout with photo */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm md:flex md:items-stretch">
+              {/* Photo */}
+              <div className="h-64 md:h-auto md:w-[280px] md:shrink-0 overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+                  alt="院長 田中みのり"
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-gradient-to-r md:from-transparent md:to-transparent" />
+              </div>
+              {/* Info */}
+              <div className="p-5 md:p-8 flex flex-col gap-5 flex-1 justify-center">
+                <div className="flex flex-col gap-1.5">
+                  <p className="text-[20px] md:text-[24px] font-bold text-[#1A1918]">田中 みのり</p>
+                  <p className="text-[11px] text-[#888888] tracking-widest">Minori Tanaka</p>
+                  <span className="self-start text-[11px] font-semibold text-[#3D8A5A] bg-[#EBF5EE] px-3 py-1 rounded-full mt-1">
                     柔道整復師 国家資格
                   </span>
                 </div>
-              </div>
-              <div className="flex flex-col gap-4 flex-1 mt-5 md:mt-0">
-                <div className="grid grid-cols-3 gap-0 border-t border-[#F0EFEC] pt-4 md:border-t-0 md:pt-0 md:border-l md:pl-10">
+                <div className="grid grid-cols-3 gap-0 border-t border-[#F0EFEC] pt-5">
                   {stats.map((s, i) => (
                     <div key={i} className={`flex flex-col items-center gap-1 ${i < 2 ? "border-r border-[#F0EFEC]" : ""}`}>
-                      <p className="text-[17px] md:text-[22px] font-bold text-[#3D8A5A]">{s.value}</p>
+                      <p className="text-[18px] md:text-[22px] font-bold text-[#3D8A5A]">{s.value}</p>
                       <p className="text-[10px] md:text-[11px] text-[#999999]">{s.label}</p>
                     </div>
                   ))}
                 </div>
-                <p className="text-[13px] text-[#666666] leading-relaxed md:text-[14px]">
+                <p className="text-[13px] text-[#666666] leading-relaxed">
                   整形外科クリニックと大手整体院でキャリアを積み、2020年にCOMPATHを開院。姿勢矯正・骨盤矯正・産後ケア・小顔矯正を専門に、骨格から整える根本改善を重視した施術を行っています。
                 </p>
               </div>
@@ -172,11 +188,21 @@ export default function AboutPage() {
             </div>
 
             {/* CTA */}
-            <div className="bg-[#1E2B22] rounded-xl p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-              <p className="text-[14px] md:text-[16px] font-bold text-white leading-relaxed">まずは体のお悩みをお気軽にご相談ください</p>
-              <Link href="/access/#contact" className="shrink-0 block text-center py-[14px] px-10 rounded-lg bg-[#3D8A5A] text-white font-bold text-[14px] hover:bg-[#2E6B44] transition-colors">
-                LINE で予約する
-              </Link>
+            <div className="bg-[#1E2B22] rounded-xl overflow-hidden relative">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=60"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative z-10 p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                <p className="text-[14px] md:text-[16px] font-bold text-white leading-relaxed">まずは体のお悩みをお気軽にご相談ください</p>
+                <Link href="/access/#contact" className="shrink-0 block text-center py-[14px] px-10 rounded-lg bg-[#3D8A5A] text-white font-bold text-[14px] hover:bg-[#2E6B44] transition-colors">
+                  LINE で予約する
+                </Link>
+              </div>
             </div>
           </div>
         </section>

@@ -14,27 +14,64 @@ const categories = [
   {
     label: "姿勢矯正",
     items: [
-      { name: "全身姿勢矯正", time: "60 min", price: "¥8,800", desc: "骨格のゆがみを根本から改善。全身のバランスを整え、正しい姿勢へ導きます。" },
-      { name: "肩こり・首こりケア", time: "40 min", price: "¥6,600", desc: "デスクワークによる肩・首のこりを集中ケア。血行促進と筋肉のリリースで軽快な毎日を。" },
+      {
+        name: "全身姿勢矯正",
+        time: "60 min",
+        price: "¥8,800",
+        desc: "骨格のゆがみを根本から改善。全身のバランスを整え、正しい姿勢へ導きます。",
+        img: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=600&q=80",
+      },
+      {
+        name: "肩こり・首こりケア",
+        time: "40 min",
+        price: "¥6,600",
+        desc: "デスクワークによる肩・首のこりを集中ケア。血行促進と筋肉のリリースで軽快な毎日を。",
+        img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=600&q=80",
+      },
     ],
   },
   {
     label: "産後骨盤矯正",
     items: [
-      { name: "産後骨盤集中コース", time: "50 min", price: "¥7,700", desc: "産後の骨盤のゆがみを丁寧に矯正。体型の戻りをサポートし、腰痛・むくみの改善にも。", popular: true },
-      { name: "産後全身リセット", time: "75 min", price: "¥9,900", desc: "骨盤矯正に加えて産後の全身のゆがみをリセット。体力の回復とボディラインの改善を目指します。" },
+      {
+        name: "産後骨盤集中コース",
+        time: "50 min",
+        price: "¥7,700",
+        desc: "産後の骨盤のゆがみを丁寧に矯正。体型の戻りをサポートし、腰痛・むくみの改善にも。",
+        popular: true,
+        img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+      },
+      {
+        name: "産後全身リセット",
+        time: "75 min",
+        price: "¥9,900",
+        desc: "骨盤矯正に加えて産後の全身のゆがみをリセット。体力の回復とボディラインの改善を目指します。",
+        img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
+      },
     ],
   },
   {
     label: "小顔矯正",
     items: [
-      { name: "小顔・フェイシャル矯正", time: "45 min", price: "¥9,900", desc: "顔のゆがみ・エラのはり・むくみを改善。フェイスラインをすっきり整えます。" },
+      {
+        name: "小顔・フェイシャル矯正",
+        time: "45 min",
+        price: "¥9,900",
+        desc: "顔のゆがみ・エラのはり・むくみを改善。フェイスラインをすっきり整えます。",
+        img: "https://images.unsplash.com/photo-1507652313519-1fae174f8be3?auto=format&fit=crop&w=600&q=80",
+      },
     ],
   },
   {
     label: "腰痛・慢性痛ケア",
     items: [
-      { name: "腰痛集中ケア", time: "50 min", price: "¥7,150", desc: "慢性的な腰痛の原因にアプローチ。骨盤・脊椎のアライメントを整え、根本から改善を目指します。" },
+      {
+        name: "腰痛集中ケア",
+        time: "50 min",
+        price: "¥7,150",
+        desc: "慢性的な腰痛の原因にアプローチ。骨盤・脊椎のアライメントを整え、根本から改善を目指します。",
+        img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80",
+      },
     ],
   },
 ];
@@ -45,8 +82,16 @@ export default function MenuPage() {
       <Header />
       <main className="w-full flex flex-col">
         {/* Hero */}
-        <section className="bg-[#1E2B22] w-full">
-          <div className="max-w-5xl mx-auto px-6 md:px-8 pt-12 pb-10 md:pt-16 md:pb-14 flex flex-col gap-3">
+        <section className="bg-[#1E2B22] w-full relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <img
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=60"
+              alt=""
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 pt-12 pb-10 md:pt-16 md:pb-14 flex flex-col gap-3">
             <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">MENU & PRICE</p>
             <h1 className="text-[24px] md:text-[36px] font-bold text-white leading-snug tracking-tight">施術メニュー・料金</h1>
             <p className="text-[13px] md:text-[15px] text-[#9AB5A4] leading-relaxed max-w-md">お身体の状態に合わせて最適なコースをご提案します</p>
@@ -68,18 +113,31 @@ export default function MenuPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {cat.items.map((item) => (
-                    <div key={item.name} className="bg-white rounded-xl overflow-hidden">
+                    <div key={item.name} className="bg-white rounded-xl overflow-hidden shadow-sm">
+                      {/* Item image */}
+                      <div className="h-44 overflow-hidden relative">
+                        <img
+                          src={item.img}
+                          alt={item.name}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        {item.popular && (
+                          <div className="absolute top-3 left-3">
+                            <span className="text-[10px] font-semibold text-white bg-[#C07050] px-2.5 py-1 rounded-full">人気 No.1</span>
+                          </div>
+                        )}
+                        <div className="absolute bottom-3 right-3">
+                          <span className="text-[18px] font-bold text-white drop-shadow">{item.price}</span>
+                        </div>
+                      </div>
                       <div className="px-5 pt-4 pb-3 flex items-start justify-between gap-3">
                         <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <p className="text-[14px] md:text-[15px] font-bold text-[#1A1918]">{item.name}</p>
-                            {item.popular && (
-                              <span className="text-[10px] font-semibold text-white bg-[#C07050] px-2 py-0.5 rounded-full">人気</span>
-                            )}
-                          </div>
+                          <p className="text-[14px] md:text-[15px] font-bold text-[#1A1918]">{item.name}</p>
                           <p className="text-[11px] text-[#AAAAAA]">{item.time}</p>
                         </div>
-                        <p className="text-[16px] font-bold text-[#3D8A5A] shrink-0">{item.price}</p>
+                        <p className="text-[15px] font-bold text-[#3D8A5A] shrink-0">{item.price}</p>
                       </div>
                       <div className="h-px bg-[#F5F4F1]" />
                       <p className="px-5 py-3 text-[12px] md:text-[13px] text-[#666666] leading-relaxed">{item.desc}</p>
@@ -90,17 +148,27 @@ export default function MenuPage() {
             ))}
 
             {/* Campaign */}
-            <div className="bg-[#1E2B22] rounded-xl p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="flex flex-col gap-2">
-                <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">FIRST VISIT</p>
-                <p className="text-[18px] md:text-[22px] font-bold text-white">初回限定キャンペーン</p>
-                <p className="text-[13px] text-[#9AB5A4] leading-relaxed max-w-sm">
-                  どのコースでも初回は特別価格 <span className="text-white font-bold">¥3,980</span> でお試しいただけます。まずはお気軽にご体験ください。
-                </p>
+            <div className="bg-[#1E2B22] rounded-xl overflow-hidden relative">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=1200&q=60"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-              <Link href="/access/#contact" className="shrink-0 block text-center py-[14px] px-8 rounded-lg bg-[#3D8A5A] text-white font-bold text-[14px] hover:bg-[#2E6B44] transition-colors">
-                LINE で予約する
-              </Link>
+              <div className="relative z-10 p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="flex flex-col gap-2">
+                  <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">FIRST VISIT</p>
+                  <p className="text-[18px] md:text-[22px] font-bold text-white">初回限定キャンペーン</p>
+                  <p className="text-[13px] text-[#9AB5A4] leading-relaxed max-w-sm">
+                    どのコースでも初回は特別価格 <span className="text-white font-bold">¥3,980</span> でお試しいただけます。まずはお気軽にご体験ください。
+                  </p>
+                </div>
+                <Link href="/access/#contact" className="shrink-0 block text-center py-[14px] px-8 rounded-lg bg-[#3D8A5A] text-white font-bold text-[14px] hover:bg-[#2E6B44] transition-colors">
+                  LINE で予約する
+                </Link>
+              </div>
             </div>
           </div>
         </section>

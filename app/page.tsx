@@ -38,9 +38,24 @@ const worries = [
 ];
 
 const features = [
-  { num: "01", title: "骨格から整える根本改善", desc: "表面的な症状だけでなく、骨格・筋肉・生活習慣までアプローチ。一時的な緩和ではなく、再発しない身体づくりを目指します。" },
-  { num: "02", title: "国家資格保有の施術者", desc: "柔道整復師の国家資格を持つ施術者が担当。解剖学に基づいた安全で効果的な施術を、丁寧なカウンセリングとともに提供します。" },
-  { num: "03", title: "完全予約制・丁寧な対応", desc: "他のお客様を気にせず施術に集中できる完全予約制。カウンセリングから施術後のセルフケア指導まで、お一人おひとりに向き合います。" },
+  {
+    num: "01",
+    title: "骨格から整える根本改善",
+    desc: "表面的な症状だけでなく、骨格・筋肉・生活習慣までアプローチ。一時的な緩和ではなく、再発しない身体づくりを目指します。",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    num: "02",
+    title: "国家資格保有の施術者",
+    desc: "柔道整復師の国家資格を持つ施術者が担当。解剖学に基づいた安全で効果的な施術を、丁寧なカウンセリングとともに提供します。",
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    num: "03",
+    title: "完全予約制・丁寧な対応",
+    desc: "他のお客様を気にせず施術に集中できる完全予約制。カウンセリングから施術後のセルフケア指導まで、お一人おひとりに向き合います。",
+    img: "https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=600&q=80",
+  },
 ];
 
 const menus = [
@@ -51,9 +66,24 @@ const menus = [
 ];
 
 const testimonials = [
-  { name: "M.S", meta: "32歳・産後ケア", text: "産後3ヶ月から通い始め、骨盤の歪みが少しずつ改善されています。毎回丁寧にカウンセリングをしてもらえるので安心して施術を受けられます。体の変化を実感でき、育児が少し楽になった気がします。" },
-  { name: "K.T", meta: "38歳・肩こり改善", text: "長年の肩こりで悩んでいましたが、3回の施術で驚くほど楽になりました。姿勢も改善されてきて、毎日のデスクワークが辛くなくなりました。原因から教えてもらえるので納得して通えています。" },
-  { name: "A.N", meta: "35歳・姿勢矯正", text: "施術を受けてから、自然と背筋が伸びるようになり周りからも変わったと言われるように。施術中もリラックスできる雰囲気で、毎回癒されています。" },
+  {
+    name: "M.S",
+    meta: "32歳・産後ケア",
+    text: "産後3ヶ月から通い始め、骨盤の歪みが少しずつ改善されています。毎回丁寧にカウンセリングをしてもらえるので安心して施術を受けられます。体の変化を実感でき、育児が少し楽になった気がします。",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+  },
+  {
+    name: "K.T",
+    meta: "38歳・肩こり改善",
+    text: "長年の肩こりで悩んでいましたが、3回の施術で驚くほど楽になりました。姿勢も改善されてきて、毎日のデスクワークが辛くなくなりました。原因から教えてもらえるので納得して通えています。",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80",
+  },
+  {
+    name: "A.N",
+    meta: "35歳・姿勢矯正",
+    text: "施術を受けてから、自然と背筋が伸びるようになり周りからも変わったと言われるように。施術中もリラックスできる雰囲気で、毎回癒されています。",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80",
+  },
 ];
 
 const faqs = [
@@ -74,8 +104,8 @@ export default function HomePage() {
 
         {/* Hero */}
         <section className="bg-[#1E2B22] w-full">
-          <div className="max-w-5xl mx-auto px-6 md:px-8 pt-16 pb-14 md:pt-24 md:pb-20 md:flex md:items-center md:gap-16">
-            <div className="flex flex-col gap-7 md:flex-1">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 pt-16 pb-0 md:pt-24 md:pb-20 md:flex md:items-center md:gap-12">
+            <div className="flex flex-col gap-7 md:flex-1 pb-16 md:pb-0">
               <div className="flex flex-col gap-4">
                 <p className="text-[11px] tracking-[0.2em] text-[#7AAA8C] font-medium">
                   三軒茶屋駅 徒歩3分 ｜ 完全予約制
@@ -101,20 +131,42 @@ export default function HomePage() {
               </div>
               <p className="text-[11px] text-[#4A6A55]">初回限定 お試し施術 ¥3,980</p>
             </div>
-            {/* PC: right visual block */}
-            <div className="hidden md:flex flex-1 items-center justify-center">
-              <div className="w-[340px] h-[400px] rounded-2xl bg-[#263D2E] flex flex-col items-center justify-center gap-4 border border-white/5">
-                <div className="flex flex-col gap-3 w-[220px]">
-                  {["肩こり・首こりの改善", "産後骨盤矯正", "姿勢矯正・猫背改善", "小顔フェイシャル矯正", "腰痛の根本改善"].map((s, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#3D8A5A] shrink-0" />
-                      <p className="text-[13px] text-[#9AB5A4]">{s}</p>
-                    </div>
-                  ))}
+
+            {/* PC: right image block */}
+            <div className="hidden md:block flex-1 relative">
+              <div className="h-[480px] rounded-2xl overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80"
+                  alt="COMPATHの施術"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E2B22]/80 via-[#1E2B22]/10 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex flex-wrap gap-2">
+                    {["肩こり・首こり", "産後骨盤矯正", "姿勢矯正", "小顔矯正", "腰痛ケア"].map((s, i) => (
+                      <span key={i} className="text-[11px] text-white/90 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">{s}</span>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-4 border-t border-white/5 pt-4 w-[220px]">
-                  <p className="text-[11px] text-[#4A6A55] tracking-widest">COMPATH — 三軒茶屋</p>
-                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: hero image strip */}
+          <div className="md:hidden w-full h-60 overflow-hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+              alt="COMPATHの施術"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1E2B22]/60 to-transparent" />
+            <div className="absolute bottom-4 left-5 right-5">
+              <div className="flex flex-wrap gap-1.5">
+                {["肩こり", "産後骨盤矯正", "姿勢矯正", "小顔矯正"].map((s, i) => (
+                  <span key={i} className="text-[10px] text-white/90 bg-white/10 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-white/20">{s}</span>
+                ))}
               </div>
             </div>
           </div>
@@ -150,10 +202,21 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {features.map((f) => (
-                <div key={f.num} className="bg-white rounded-xl p-6 flex flex-col gap-3">
-                  <span className="text-[32px] md:text-[36px] font-bold text-[#E8E3DC] leading-none">{f.num}</span>
-                  <h3 className="text-[15px] md:text-[16px] font-bold text-[#1A1918]">{f.title}</h3>
-                  <p className="text-[13px] text-[#666666] leading-relaxed">{f.desc}</p>
+                <div key={f.num} className="bg-white rounded-xl overflow-hidden flex flex-col shadow-sm">
+                  <div className="h-44 overflow-hidden relative">
+                    <img
+                      src={f.img}
+                      alt={f.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+                  </div>
+                  <div className="p-5 md:p-6 flex flex-col gap-3 flex-1">
+                    <span className="text-[28px] font-bold text-[#E8E3DC] leading-none">{f.num}</span>
+                    <h3 className="text-[15px] md:text-[16px] font-bold text-[#1A1918]">{f.title}</h3>
+                    <p className="text-[13px] text-[#666666] leading-relaxed">{f.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -212,11 +275,18 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 flex flex-col gap-4">
+                <div key={i} className="bg-white rounded-xl p-5 flex flex-col gap-4 shadow-sm">
                   <p className="text-[11px] text-[#C8A882] tracking-widest">★★★★★</p>
                   <p className="text-[13px] text-[#333333] leading-[1.85] flex-1">{t.text}</p>
-                  <div className="flex items-center gap-2 pt-3 border-t border-[#F0EFEC]">
-                    <div className="w-7 h-7 rounded-full bg-[#D8D3CC] shrink-0" />
+                  <div className="flex items-center gap-3 pt-3 border-t border-[#F0EFEC]">
+                    <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-[#F0EFEC]">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                     <p className="text-[11px] text-[#888888]">{t.name}（{t.meta}）</p>
                   </div>
                 </div>
@@ -237,9 +307,19 @@ export default function HomePage() {
               <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">DIRECTOR</p>
               <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">院長プロフィール</h2>
             </div>
-            <div className="bg-[#F5F4F1] rounded-xl p-5 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10 md:items-start">
-              <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-full bg-[#D8D3CC] shrink-0" />
-              <div className="flex flex-col gap-4 flex-1">
+            <div className="bg-[#F5F4F1] rounded-xl overflow-hidden md:flex md:items-stretch">
+              {/* Image side (desktop) */}
+              <div className="md:w-[260px] md:shrink-0 h-52 md:h-auto overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+                  alt="院長 田中みのり"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent md:bg-gradient-to-r md:from-transparent md:to-transparent" />
+              </div>
+              {/* Content side */}
+              <div className="p-5 md:p-8 flex flex-col gap-4 flex-1 justify-center">
                 <div className="flex flex-col gap-1">
                   <p className="text-[17px] md:text-[20px] font-bold text-[#1A1918]">田中 みのり</p>
                   <p className="text-[11px] text-[#3D8A5A] font-semibold tracking-wide">柔道整復師 ｜ 国家資格保有</p>
@@ -307,8 +387,16 @@ export default function HomePage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#1E2B22] w-full">
-          <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <section className="bg-[#1E2B22] w-full relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <img
+              src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1400&q=60"
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="flex flex-col gap-3">
               <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">CONTACT</p>
               <h2 className="text-[22px] md:text-[32px] font-bold text-white leading-relaxed">
