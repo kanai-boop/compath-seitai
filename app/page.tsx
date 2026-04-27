@@ -38,21 +38,9 @@ const worries = [
 ];
 
 const features = [
-  {
-    num: "01",
-    title: "骨格から整える根本改善",
-    desc: "表面的な症状だけでなく、骨格・筋肉・生活習慣までアプローチ。一時的な緩和ではなく、再発しない身体づくりを目指します。",
-  },
-  {
-    num: "02",
-    title: "国家資格保有の施術者",
-    desc: "柔道整復師の国家資格を持つ施術者が担当。解剖学に基づいた安全で効果的な施術を、丁寧なカウンセリングとともに提供します。",
-  },
-  {
-    num: "03",
-    title: "完全予約制・丁寧な対応",
-    desc: "他のお客様を気にせず施術に集中できる完全予約制。カウンセリングから施術後のセルフケア指導まで、お一人おひとりに向き合います。",
-  },
+  { num: "01", title: "骨格から整える根本改善", desc: "表面的な症状だけでなく、骨格・筋肉・生活習慣までアプローチ。一時的な緩和ではなく、再発しない身体づくりを目指します。" },
+  { num: "02", title: "国家資格保有の施術者", desc: "柔道整復師の国家資格を持つ施術者が担当。解剖学に基づいた安全で効果的な施術を、丁寧なカウンセリングとともに提供します。" },
+  { num: "03", title: "完全予約制・丁寧な対応", desc: "他のお客様を気にせず施術に集中できる完全予約制。カウンセリングから施術後のセルフケア指導まで、お一人おひとりに向き合います。" },
 ];
 
 const menus = [
@@ -65,7 +53,7 @@ const menus = [
 const testimonials = [
   { name: "M.S", meta: "32歳・産後ケア", text: "産後3ヶ月から通い始め、骨盤の歪みが少しずつ改善されています。毎回丁寧にカウンセリングをしてもらえるので安心して施術を受けられます。体の変化を実感でき、育児が少し楽になった気がします。" },
   { name: "K.T", meta: "38歳・肩こり改善", text: "長年の肩こりで悩んでいましたが、3回の施術で驚くほど楽になりました。姿勢も改善されてきて、毎日のデスクワークが辛くなくなりました。原因から教えてもらえるので納得して通えています。" },
-  { name: "A.N", meta: "35歳・姿勢矯正", text: "姿勢が悪いと言われ続けていたので来院。丁寧なカウンセリングで安心して施術を受けられました。施術後は自然と背筋が伸びるようになり、周りからも変わったと言われるようになりました。" },
+  { name: "A.N", meta: "35歳・姿勢矯正", text: "施術を受けてから、自然と背筋が伸びるようになり周りからも変わったと言われるように。施術中もリラックスできる雰囲気で、毎回癒されています。" },
 ];
 
 const faqs = [
@@ -74,6 +62,7 @@ const faqs = [
   { q: "施術は痛くないですか？", a: "痛みのない優しい施術を心がけています。ご要望に応じて力加減を調整しますのでお気軽にお申し付けください。" },
   { q: "何回くらいで改善しますか？", a: "症状やお身体の状態によって異なりますが、目安として3〜5回の施術で変化を実感される方が多いです。" },
   { q: "予約方法を教えてください", a: "LINEまたはお問い合わせフォームからご予約いただけます。お気軽にご連絡ください。" },
+  { q: "駐車場はありますか？", a: "専用駐車場はございません。近隣のコインパーキングをご利用ください。" },
 ];
 
 export default function HomePage() {
@@ -81,225 +70,262 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
-      <main className="max-w-[390px] mx-auto w-full flex flex-col">
+      <main className="w-full flex flex-col">
 
         {/* Hero */}
-        <section className="bg-[#1E2B22] px-6 pt-14 pb-12 flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <p className="text-[11px] tracking-[0.18em] text-[#7AAA8C] font-medium">
-              三軒茶屋駅 徒歩3分 ｜ 完全予約制
-            </p>
-            <h1 className="text-[26px] font-bold text-white leading-[1.6] tracking-tight">
-              整うことで、<br />
-              自分の方向が<br />
-              見えてくる。
-            </h1>
-            <p className="text-[13px] text-[#9AB5A4] leading-[1.9]">
-              からだ整体院 COMPATH（コンパス）は<br />
-              30〜40代女性のお身体のお悩みに寄り添う<br />
-              美容整体・姿勢矯正の専門院です。
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <Link
-              href="/access/#contact"
-              className="block text-center py-[15px] rounded-lg bg-[#3D8A5A] text-white font-bold text-[15px] tracking-wide"
-            >
-              LINE で予約する
-            </Link>
-            <Link
-              href="/menu/"
-              className="block text-center py-[14px] rounded-lg border border-white/20 text-white/80 text-[14px] tracking-wide"
-            >
-              施術メニューを見る
-            </Link>
-            <p className="text-[11px] text-[#6A8A77] text-center">初回限定 お試し施術 ¥3,980</p>
+        <section className="bg-[#1E2B22] w-full">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 pt-16 pb-14 md:pt-24 md:pb-20 md:flex md:items-center md:gap-16">
+            <div className="flex flex-col gap-7 md:flex-1">
+              <div className="flex flex-col gap-4">
+                <p className="text-[11px] tracking-[0.2em] text-[#7AAA8C] font-medium">
+                  三軒茶屋駅 徒歩3分 ｜ 完全予約制
+                </p>
+                <h1 className="text-[28px] md:text-[42px] font-bold text-white leading-[1.6] tracking-tight">
+                  整うことで、<br />
+                  自分の方向が<br />
+                  見えてくる。
+                </h1>
+                <p className="text-[13px] md:text-[15px] text-[#9AB5A4] leading-[1.9] max-w-sm">
+                  からだ整体院 COMPATH（コンパス）は<br />
+                  30〜40代女性のお身体のお悩みに寄り添う<br />
+                  美容整体・姿勢矯正の専門院です。
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 md:flex-col md:max-w-[260px]">
+                <Link href="/access/#contact" className="block text-center py-[15px] rounded-lg bg-[#3D8A5A] text-white font-bold text-[15px] tracking-wide hover:bg-[#2E6B44] transition-colors">
+                  LINE で予約する
+                </Link>
+                <Link href="/menu/" className="block text-center py-[14px] rounded-lg border border-white/20 text-white/80 text-[14px] tracking-wide hover:border-white/40 transition-colors">
+                  施術メニューを見る
+                </Link>
+              </div>
+              <p className="text-[11px] text-[#4A6A55]">初回限定 お試し施術 ¥3,980</p>
+            </div>
+            {/* PC: right visual block */}
+            <div className="hidden md:flex flex-1 items-center justify-center">
+              <div className="w-[340px] h-[400px] rounded-2xl bg-[#263D2E] flex flex-col items-center justify-center gap-4 border border-white/5">
+                <div className="flex flex-col gap-3 w-[220px]">
+                  {["肩こり・首こりの改善", "産後骨盤矯正", "姿勢矯正・猫背改善", "小顔フェイシャル矯正", "腰痛の根本改善"].map((s, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#3D8A5A] shrink-0" />
+                      <p className="text-[13px] text-[#9AB5A4]">{s}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 border-t border-white/5 pt-4 w-[220px]">
+                  <p className="text-[11px] text-[#4A6A55] tracking-widest">COMPATH — 三軒茶屋</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Worries */}
-        <section className="bg-white px-5 py-12">
-          <div className="mb-7">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">WORRIES</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918] leading-snug">こんなお悩みは<br />ありませんか？</h2>
+        <section className="bg-white w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="mb-8 md:mb-10">
+              <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">WORRIES</p>
+              <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918] leading-snug">こんなお悩みは<br className="md:hidden" />ありませんか？</h2>
+            </div>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-12">
+              {worries.map((w, i) => (
+                <li key={i} className="flex items-start gap-3 py-4 border-b border-[#F0EFEC]">
+                  <span className="text-[#3D8A5A] font-bold text-sm mt-0.5 shrink-0">—</span>
+                  <p className="text-[13px] md:text-[14px] text-[#333333] leading-relaxed">{w}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-7 text-[13px] md:text-[14px] text-[#3D8A5A] font-semibold md:text-center">
+              そのお悩み、COMPATHで根本から改善できます。
+            </p>
           </div>
-          <ul className="flex flex-col gap-3">
-            {worries.map((w, i) => (
-              <li key={i} className="flex items-start gap-3 py-3 border-b border-[#F0EFEC]">
-                <span className="text-[#3D8A5A] font-bold text-sm mt-0.5 shrink-0">—</span>
-                <p className="text-[13px] text-[#333333] leading-relaxed">{w}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-[13px] text-[#3D8A5A] font-semibold text-center">
-            そのお悩み、COMPATHで根本から改善できます。
-          </p>
         </section>
 
         {/* Features */}
-        <section className="bg-[#F5F4F1] px-5 py-12">
-          <div className="mb-8">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">FEATURES</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">COMPATHの<br />3つの特徴</h2>
-          </div>
-          <div className="flex flex-col gap-5">
-            {features.map((f) => (
-              <div key={f.num} className="bg-white rounded-xl p-5">
-                <div className="flex items-start gap-4">
-                  <span className="text-[28px] font-bold text-[#D8D3CC] leading-none shrink-0 mt-1">{f.num}</span>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-[15px] font-bold text-[#1A1918]">{f.title}</h3>
-                    <p className="text-[13px] text-[#666666] leading-relaxed">{f.desc}</p>
-                  </div>
+        <section className="bg-[#F5F4F1] w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="mb-8 md:mb-12">
+              <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">FEATURES</p>
+              <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">COMPATHの3つの特徴</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {features.map((f) => (
+                <div key={f.num} className="bg-white rounded-xl p-6 flex flex-col gap-3">
+                  <span className="text-[32px] md:text-[36px] font-bold text-[#E8E3DC] leading-none">{f.num}</span>
+                  <h3 className="text-[15px] md:text-[16px] font-bold text-[#1A1918]">{f.title}</h3>
+                  <p className="text-[13px] text-[#666666] leading-relaxed">{f.desc}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Menu */}
-        <section className="bg-white px-5 py-12">
-          <div className="mb-7">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">MENU</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">施術メニュー</h2>
-          </div>
-          <div className="flex flex-col">
-            {menus.map((m, i) => (
-              <div key={i} className="flex items-start justify-between py-4 border-b border-[#F0EFEC] gap-4">
-                <div className="flex flex-col gap-1">
-                  <p className="text-[14px] font-semibold text-[#1A1918]">{m.name}</p>
-                  <p className="text-[12px] text-[#888888]">{m.desc}</p>
-                </div>
-                <p className="text-[14px] font-bold text-[#3D8A5A] shrink-0">{m.price}</p>
+        <section className="bg-white w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="md:flex md:items-end md:justify-between mb-8 md:mb-10">
+              <div>
+                <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">MENU</p>
+                <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">施術メニュー</h2>
               </div>
-            ))}
-          </div>
-          <div className="mt-2 py-3 border-b border-[#F0EFEC]">
-            <p className="text-[12px] text-[#C07050] font-semibold">初回限定 お試し施術</p>
-            <div className="flex items-center justify-between mt-1">
-              <p className="text-[13px] text-[#666666]">どのコースも初回は特別価格</p>
-              <p className="text-[15px] font-bold text-[#C07050]">¥3,980</p>
+              <Link href="/menu/" className="hidden md:inline-block text-[13px] text-[#3D8A5A] font-semibold border-b border-[#3D8A5A] pb-0.5 hover:opacity-70 transition-opacity">
+                メニュー・料金をすべて見る →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-12">
+              {menus.map((m, i) => (
+                <div key={i} className="flex items-start justify-between py-4 border-b border-[#F0EFEC] gap-4">
+                  <div className="flex flex-col gap-1">
+                    <p className="text-[14px] font-semibold text-[#1A1918]">{m.name}</p>
+                    <p className="text-[12px] text-[#888888]">{m.desc}</p>
+                  </div>
+                  <p className="text-[14px] font-bold text-[#3D8A5A] shrink-0">{m.price}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-2 py-4 border-b border-[#F0EFEC] flex items-center justify-between">
+              <div>
+                <p className="text-[12px] text-[#C07050] font-semibold">初回限定 お試し施術</p>
+                <p className="text-[13px] text-[#666666]">どのコースも初回は特別価格</p>
+              </div>
+              <p className="text-[18px] font-bold text-[#C07050]">¥3,980</p>
+            </div>
+            <div className="md:hidden mt-5">
+              <Link href="/menu/" className="block text-center py-[13px] rounded-lg border border-[#3D8A5A] text-[#3D8A5A] text-[13px] font-semibold tracking-wide">
+                メニュー・料金をすべて見る
+              </Link>
             </div>
           </div>
-          <Link href="/menu/" className="mt-5 block text-center py-[13px] rounded-lg border border-[#3D8A5A] text-[#3D8A5A] text-[13px] font-semibold tracking-wide">
-            メニュー・料金をすべて見る
-          </Link>
         </section>
 
         {/* Testimonials */}
-        <section className="bg-[#F5F4F1] px-5 py-12">
-          <div className="mb-7">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">VOICE</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">お客様の声</h2>
-          </div>
-          <div className="flex flex-col gap-4">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-5">
-                <p className="text-[12px] text-[#C8A882] tracking-widest mb-3">★★★★★</p>
-                <p className="text-[13px] text-[#333333] leading-relaxed mb-4">{t.text}</p>
-                <div className="flex items-center gap-2 pt-3 border-t border-[#F0EFEC]">
-                  <div className="w-7 h-7 rounded-full bg-[#D8D3CC] shrink-0" />
-                  <p className="text-[11px] text-[#888888]">{t.name}（{t.meta}）</p>
-                </div>
+        <section className="bg-[#F5F4F1] w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="md:flex md:items-end md:justify-between mb-8 md:mb-10">
+              <div>
+                <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">VOICE</p>
+                <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">お客様の声</h2>
               </div>
-            ))}
+              <Link href="/voice/" className="hidden md:inline-block text-[13px] text-[#3D8A5A] font-semibold border-b border-[#3D8A5A] pb-0.5 hover:opacity-70 transition-opacity">
+                すべての口コミを見る →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+              {testimonials.map((t, i) => (
+                <div key={i} className="bg-white rounded-xl p-5 flex flex-col gap-4">
+                  <p className="text-[11px] text-[#C8A882] tracking-widest">★★★★★</p>
+                  <p className="text-[13px] text-[#333333] leading-[1.85] flex-1">{t.text}</p>
+                  <div className="flex items-center gap-2 pt-3 border-t border-[#F0EFEC]">
+                    <div className="w-7 h-7 rounded-full bg-[#D8D3CC] shrink-0" />
+                    <p className="text-[11px] text-[#888888]">{t.name}（{t.meta}）</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="md:hidden mt-5">
+              <Link href="/voice/" className="block text-center py-[13px] rounded-lg border border-[#3D8A5A] text-[#3D8A5A] text-[13px] font-semibold tracking-wide">
+                すべての口コミを見る
+              </Link>
+            </div>
           </div>
-          <Link href="/voice/" className="mt-5 block text-center py-[13px] rounded-lg border border-[#3D8A5A] text-[#3D8A5A] text-[13px] font-semibold tracking-wide">
-            すべての口コミを見る
-          </Link>
         </section>
 
         {/* Doctor */}
-        <section className="bg-white px-5 py-12">
-          <div className="mb-7">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">DIRECTOR</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">院長プロフィール</h2>
-          </div>
-          <div className="bg-[#F5F4F1] rounded-xl p-5 flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-[72px] h-[72px] rounded-full bg-[#D8D3CC] shrink-0" />
-              <div className="flex flex-col gap-1">
-                <p className="text-[16px] font-bold text-[#1A1918]">田中 みのり</p>
-                <p className="text-[11px] text-[#3D8A5A] font-semibold tracking-wide">柔道整復師 ｜ 国家資格保有</p>
-                <p className="text-[11px] text-[#888888]">施術歴 12年 ｜ 累計 3,000名以上</p>
+        <section className="bg-white w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="mb-7 md:mb-10">
+              <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">DIRECTOR</p>
+              <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">院長プロフィール</h2>
+            </div>
+            <div className="bg-[#F5F4F1] rounded-xl p-5 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10 md:items-start">
+              <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-full bg-[#D8D3CC] shrink-0" />
+              <div className="flex flex-col gap-4 flex-1">
+                <div className="flex flex-col gap-1">
+                  <p className="text-[17px] md:text-[20px] font-bold text-[#1A1918]">田中 みのり</p>
+                  <p className="text-[11px] text-[#3D8A5A] font-semibold tracking-wide">柔道整復師 ｜ 国家資格保有</p>
+                  <p className="text-[11px] text-[#888888]">施術歴 12年 ｜ 累計 3,000名以上</p>
+                </div>
+                <p className="text-[13px] md:text-[14px] text-[#555555] leading-[1.9] border-t border-[#E8E5DF] pt-4">
+                  自身の腰痛体験から整体師の道へ。「症状を一時的に和らげるだけでなく、再発しない身体づくり」をモットーに、一人ひとりに向き合った施術を心がけています。骨格・筋肉・生活習慣までトータルにアプローチし、カウンセリングから施術後のセルフケア指導まで丁寧に対応します。
+                </p>
+                <Link href="/about/" className="self-start text-[13px] text-[#3D8A5A] font-semibold border-b border-[#3D8A5A] pb-0.5 hover:opacity-70 transition-opacity">
+                  院長プロフィールをくわしく見る →
+                </Link>
               </div>
             </div>
-            <p className="text-[13px] text-[#555555] leading-[1.9] border-t border-[#E8E5DF] pt-4">
-              自身の腰痛体験から整体師の道へ。「症状を一時的に和らげるだけでなく、再発しない身体づくり」をモットーに、一人ひとりに向き合った施術を心がけています。
-            </p>
           </div>
-          <Link href="/about/" className="mt-4 block text-center py-[13px] rounded-lg border border-[#3D8A5A] text-[#3D8A5A] text-[13px] font-semibold tracking-wide">
-            院長プロフィールをくわしく見る
-          </Link>
         </section>
 
         {/* Access */}
-        <section className="bg-[#F5F4F1] px-5 py-12">
-          <div className="mb-6">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">ACCESS</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">アクセス</h2>
-          </div>
-          <div className="h-44 rounded-xl bg-[#D8E4D8] mb-4 flex items-center justify-center">
-            <p className="text-[13px] text-[#4A6E55] font-medium tracking-wide">地図（Google Maps）</p>
-          </div>
-          <div className="bg-white rounded-xl p-5 flex flex-col gap-3">
-            {[
-              { label: "住所", value: "東京都世田谷区三軒茶屋 1-XX-XX" },
-              { label: "アクセス", value: "三軒茶屋駅（東急田園都市線・世田谷線）徒歩3分" },
-              { label: "営業時間", value: "10:00〜20:00（最終受付 19:00）" },
-              { label: "定休日", value: "水曜日　完全予約制" },
-            ].map((row, i) => (
-              <div key={i} className="flex gap-3 items-start">
-                <span className="text-[11px] font-semibold text-[#3D8A5A] w-14 shrink-0 pt-0.5">{row.label}</span>
-                <p className="text-[13px] text-[#444444] leading-relaxed">{row.value}</p>
+        <section className="bg-[#F5F4F1] w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="mb-7 md:mb-10">
+              <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">ACCESS</p>
+              <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">アクセス</h2>
+            </div>
+            <div className="flex flex-col md:flex-row gap-5 md:gap-8">
+              <div className="md:flex-1 h-48 md:h-auto md:min-h-[220px] rounded-xl bg-[#D8E4D8] flex items-center justify-center">
+                <p className="text-[13px] text-[#4A6E55] font-medium tracking-wide">地図（Google Maps）</p>
               </div>
-            ))}
+              <div className="md:flex-1 bg-white rounded-xl p-5 md:p-6 flex flex-col gap-3 justify-center">
+                {[
+                  { label: "住所", value: "東京都世田谷区三軒茶屋 1-XX-XX" },
+                  { label: "アクセス", value: "三軒茶屋駅（東急田園都市線・世田谷線）徒歩3分" },
+                  { label: "営業時間", value: "10:00〜20:00（最終受付 19:00）" },
+                  { label: "定休日", value: "水曜日　完全予約制" },
+                ].map((row, i) => (
+                  <div key={i} className="flex gap-3 items-start border-b border-[#F5F4F1] pb-3 last:border-0 last:pb-0">
+                    <span className="text-[11px] font-semibold text-[#3D8A5A] w-14 shrink-0 pt-0.5">{row.label}</span>
+                    <p className="text-[13px] text-[#444444] leading-relaxed">{row.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="bg-white px-5 py-12">
-          <div className="mb-7">
-            <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">FAQ</p>
-            <h2 className="text-[18px] font-bold text-[#1A1918]">よくあるご質問</h2>
-          </div>
-          <div className="flex flex-col">
-            {faqs.map((faq, i) => (
-              <div key={i} className="py-5 border-b border-[#F0EFEC]">
-                <p className="text-[13px] font-semibold text-[#1A1918] mb-2 flex gap-2">
-                  <span className="text-[#3D8A5A] shrink-0">Q.</span>
-                  {faq.q}
-                </p>
-                <p className="text-[13px] text-[#666666] leading-relaxed flex gap-2">
-                  <span className="text-[#C8A882] shrink-0">A.</span>
-                  {faq.a}
-                </p>
-              </div>
-            ))}
+        <section className="bg-white w-full">
+          <div className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20">
+            <div className="mb-8 md:mb-10">
+              <p className="text-[10px] tracking-[0.2em] text-[#3D8A5A] font-semibold mb-2">FAQ</p>
+              <h2 className="text-[20px] md:text-[26px] font-bold text-[#1A1918]">よくあるご質問</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-12">
+              {faqs.map((faq, i) => (
+                <div key={i} className="py-5 border-b border-[#F0EFEC]">
+                  <p className="text-[13px] md:text-[14px] font-semibold text-[#1A1918] mb-2 flex gap-2">
+                    <span className="text-[#3D8A5A] shrink-0">Q.</span>{faq.q}
+                  </p>
+                  <p className="text-[13px] text-[#666666] leading-relaxed flex gap-2">
+                    <span className="text-[#C8A882] shrink-0">A.</span>{faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-[#1E2B22] px-6 py-14 flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">CONTACT</p>
-            <h2 className="text-[20px] font-bold text-white leading-relaxed">
-              まずはお気軽に<br />ご相談ください
-            </h2>
-            <p className="text-[13px] text-[#7AAA8C]">初回限定 お試し施術 ¥3,980</p>
+        <section className="bg-[#1E2B22] w-full">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div className="flex flex-col gap-3">
+              <p className="text-[10px] tracking-[0.2em] text-[#7AAA8C] font-medium">CONTACT</p>
+              <h2 className="text-[22px] md:text-[32px] font-bold text-white leading-relaxed">
+                まずはお気軽に<br />ご相談ください
+              </h2>
+              <p className="text-[13px] text-[#7AAA8C]">初回限定 お試し施術 ¥3,980</p>
+              <p className="text-[11px] text-[#4A6A55]">完全予約制｜10:00〜20:00（水曜定休）</p>
+            </div>
+            <div className="flex flex-col gap-3 md:w-[260px] shrink-0">
+              <Link href="/access/#contact" className="block text-center py-[15px] rounded-lg bg-[#3D8A5A] text-white font-bold text-[15px] hover:bg-[#2E6B44] transition-colors">
+                LINE で予約する
+              </Link>
+              <Link href="/access/#contact" className="block text-center py-[14px] rounded-lg bg-white text-[#1E2B22] font-semibold text-[14px] hover:bg-gray-50 transition-colors">
+                お問い合わせフォーム
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col gap-3">
-            <Link href="/access/#contact" className="block text-center py-[15px] rounded-lg bg-[#3D8A5A] text-white font-bold text-[15px]">
-              LINE で予約する
-            </Link>
-            <Link href="/access/#contact" className="block text-center py-[14px] rounded-lg bg-white text-[#1E2B22] font-semibold text-[14px]">
-              お問い合わせフォーム
-            </Link>
-          </div>
-          <p className="text-[11px] text-[#4A6A55] text-center">
-            完全予約制｜10:00〜20:00（水曜定休）
-          </p>
         </section>
       </main>
       <Footer />
